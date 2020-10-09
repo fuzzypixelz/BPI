@@ -8,8 +8,8 @@ from math import copysign
 
 output = sys.stdout
 
-LARGEUR = 3200
-HAUTEUR = 2400
+LARGEUR = 120
+HAUTEUR = 80
 CASE = 40
 
 def output_case(x, y, nombre):
@@ -93,7 +93,7 @@ def main():
     bottom = HAUTEUR
 
     sens_positif = True
-
+    
     print(svg.genere_balise_debut_image(LARGEUR, HAUTEUR), file=output)
     
     y = bottom
