@@ -1,10 +1,11 @@
 """
 Implémenter une interface en mode texte pour le jeu lights out.
 """
+from random import randint
 # see https://en.wikipedia.org/wiki/Block_Elements
-FULL_BLOCK = '\u2588'
+FULL_BLOCK = f'\u001b[{randint(30, 37)}m\u2588\u001b[0m'
 EMPTY_BLOCK = ' '
-CELL_WIDTH = 5
+CELL_WIDTH = 6 
 CELL_HEIGHT = 3 
 WIDTH = 5
 HEIGHT = 5
@@ -64,7 +65,7 @@ def game_over(board_config):
     return True
 
 def prompt_move():
-    move = input('You next move: ')
+    move = input('Your next move: ')
     return ord(move[0])-ord('A'), int(move[1])
 
 def import_level(level):

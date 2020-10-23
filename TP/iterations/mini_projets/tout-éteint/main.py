@@ -6,7 +6,9 @@ import os
 from random import randint
 
 def start_game(board_config):
+    moves = 0
     while not lo.game_over(board_config):
+        moves += 1
         print(lo.get_board(board_config))
         lit_cell = lo.prompt_move()
         lo.update_board_config(board_config, lit_cell)
@@ -26,10 +28,10 @@ def start_game(board_config):
                         \____   |/    |    \    |  /   \        /|   /    |    \|     
                         / ______|\_______  /______/     \__/\  / |___\____|__  /_     
                         \/               \/                  \/              \/\/ """)
-    print('\u001b[0mPlay again?')
+    print(f'\u001b[0mFinished in {moves} moves. Play again?')
 def main():
     if len(sys.argv) != 2:
-        print(f'Usage: ./{sys.argv[0]} level-number')
+        print(f'Usage: {sys.argv[0]} level-number')
     else:
         board_config = lo.import_level(sys.argv[1])
         start_game(board_config)        
